@@ -29,6 +29,7 @@ exports.step2 = function (req, res) {
   })
 }
 
+//створення json файла
 
 exports.showDoc = function (req, res) {
   console.log(req.body);
@@ -44,7 +45,6 @@ exports.showDoc = function (req, res) {
     }
     list.push(req.body)
     fs.writeFileSync(fileid, JSON.stringify(list))
-    console.log('------------');
     console.log(list);
     res.redirect('/')
 }
