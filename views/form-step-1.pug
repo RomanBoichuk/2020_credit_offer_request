@@ -1,0 +1,23 @@
+extends layout
+block content
+  h1 Form 1
+  p=example
+  form.form-step-1(action="/step2" method="POST")
+    .form--input
+      span
+        input(name="surname" placeholder="Прізвище" value=surname)
+        | 
+        input(name="name" placeholder="Ім'я" value=name)
+        p
+          span
+            input(name="fathername" placeholder="По батькові" value=fathername)
+            | 
+            input(name="ipn" placeholder="Ідентифікаційний код" value=ipn)
+        p
+          span
+            input(name="datebirsday" placeholder="дата народження" value=datebirsday)
+            | 
+            input(datalist="sex" name="sex" value=sex)
+        p якщо все добре то збережіть дані
+        p
+          button NEXT

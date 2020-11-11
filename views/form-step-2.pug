@@ -1,0 +1,30 @@
+extends layout
+block content
+  h1 Form 2
+  p=example
+  form.pasport(action="/document-confirmation" method="POST")
+    .form--input
+      p
+        input(type="text" name="surname" value=surname)
+        input(type="text" name="name" value=name)
+        input(type="text" name="fathername" value=fathername)
+        input(type="text" name="ipn" value=ipn)
+        input(type="text" name="datebirsday" value=datebirsday)
+        input(type="text" name="sex" value=sex)
+      span
+        input(name="seria" placeholder="серія")
+        | 
+        input(name="number" placeholder="номер" )
+        | 
+        input(name="dateissue" placeholder="дата видачі" )
+      p
+        input(name="authority" placeholder="орган видачі" )
+      span КРОК 3 із 3: АДРЕСА ПРОЖИВАННЯ
+      p
+        input(name="city" placeholder="місто" )
+        | 
+        input(name="street" placeholder="вулиця" )
+        | 
+        input(name="house" placeholder="будинок" )
+      p
+        button SAVE
