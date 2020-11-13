@@ -14,7 +14,7 @@ app.set('view engine', 'pug')
 
 app.get('/', documentController.form)
 //app.get('/form2', documentController.form2)
-app.post('/step2', documentController.step2)
+app.post('/step2', documentController.form2)
 app.post('/document-confirmation', documentController.showDoc)
 // app.get('/thanx-page', documentController.showDoc)
 

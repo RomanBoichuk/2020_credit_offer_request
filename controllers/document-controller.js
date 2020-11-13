@@ -18,14 +18,14 @@ exports.form = function (req, res) {
 //перхід методо POST на другу сторінку
 //заповнення даних на другій сторінці
 //
-exports.step2 = function (req, res) {
+exports.form2 = function (req, res) {
   res.render('form-step-2', {
       surname:req.body.surname,
       name:req.body.name,
       fathername:req.body.fathername,
       ipn:req.body.ipn,
       datebirsday:req.body.datebirsday,
-      sex:req.body.sex
+      phone:req.body.phone
   })
 }
 
@@ -46,5 +46,7 @@ exports.showDoc = function (req, res) {
     list.push(req.body)
     fs.writeFileSync(fileid, JSON.stringify(list))
     console.log(list);
-    res.redirect('/')
+    res.render('document-confirmation',{
+      contacts:list
+    })
 }

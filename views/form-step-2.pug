@@ -5,12 +5,12 @@ block content
   form.pasport(action="/document-confirmation" method="POST")
     .form--input
       p
-        input(type="text" name="surname" value=surname)
-        input(type="text" name="name" value=name)
-        input(type="text" name="fathername" value=fathername)
-        input(type="text" name="ipn" value=ipn)
-        input(type="text" name="datebirsday" value=datebirsday)
-        input(type="text" name="sex" value=sex)
+        input(type="hidden" name="surname" value=surname)
+        input(type="hidden" name="name" value=name)
+        input(type="hidden" name="fathername" value=fathername)
+        input(type="hidden" name="ipn" value=ipn)
+        input(type="hidden" name="datebirsday" value=datebirsday)
+        input(type="hidden" name="phone" value=phone)
       span
         input(name="seria" placeholder="серія")
         | 
