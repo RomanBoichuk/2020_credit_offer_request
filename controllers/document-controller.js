@@ -42,17 +42,21 @@ exports.showDoc = function (req, res) {
     } catch(err) {
       console.error(err)
     }
-    console.log(req.body);
     list.push(req.body)
     fs.writeFileSync(fileid, JSON.stringify(list))
-    console.log(list);
     res.render('document-confirmation',{
-      contacts:list
+      contacts:list,
+      surname:req.body.surname,
+      name:req.body.name,
+      fathername:req.body.fathername,
+      ipn:req.body.ipn,
+      datebirsday:req.body.datebirsday,
+      phone:req.body.phone
     })
 }
 
 exports.delete = function (req, res) {
-  var fileid=req.body.ipn+".json";
+  var fileid=req.body.ipn + ".json";
   var list = []
     try {
       if (fs.existsSync(fileid)) {
