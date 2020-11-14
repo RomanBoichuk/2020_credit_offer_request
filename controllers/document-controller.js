@@ -32,7 +32,6 @@ exports.form2 = function (req, res) {
 //створення json файла
 
 exports.showDoc = function (req, res) {
-  console.log(req.body);
   var fileid=req.body.ipn+".json";
   var list = []
     try {
@@ -43,6 +42,7 @@ exports.showDoc = function (req, res) {
     } catch(err) {
       console.error(err)
     }
+    console.log(req.body);
     list.push(req.body)
     fs.writeFileSync(fileid, JSON.stringify(list))
     console.log(list);
@@ -50,3 +50,19 @@ exports.showDoc = function (req, res) {
       contacts:list
     })
 }
+
+exports.delete = function (req, res) {
+  var fileid=req.body.ipn+".json";
+  var list = []
+    try {
+      if (fs.existsSync(fileid)) {
+        list=fs.readFileSync(fileid, 'utf-8')
+        list=JSON.parse(list)
+      }
+    } catch(err) {
+      console.error(err)
+    }
+    list.splice(req.params.id, 1)
+    fs.writeFileSync(fileid, JSON.stringify(list))
+    res.redirect("/")
+  }

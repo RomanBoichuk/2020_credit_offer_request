@@ -2,7 +2,7 @@ extends layout
 block content
   h1 Перевірка даних 
   p
-    each contact,id in contacts
+    each contact, id in contacts
       span=contact.surname
       form(method="post" action="/delete/" + id)
         button DELETE
