@@ -55,7 +55,9 @@ exports.showDoc = function (req, res) {
     })
 }
 
+
 exports.delete = function (req, res) {
+  console.log(req.body);
   var fileid=req.body.ipn + ".json";
   var list = []
     try {
@@ -70,3 +72,56 @@ exports.delete = function (req, res) {
     fs.writeFileSync(fileid, JSON.stringify(list))
     res.redirect("/")
   }
+
+
+exports.edit = function (req, res) {
+  console.log(req.body);
+  var fileid="3141502910" + ".json";
+  var list = []
+    try {
+      if (fs.existsSync(fileid)) {
+        list=fs.readFileSync(fileid, 'utf-8')
+        list=JSON.parse(list)
+      }
+    } catch(err) {
+      console.error(err)
+    }
+    var contact=list[req.params.id]
+    contact.id=req.params.id
+    res.render("edit-form",{
+      contact
+    })
+  }
+
+
+exports.update = function (req, res)  {
+    console.log(req.body);
+    var fileid=req.body.ipn + ".json";
+    var list = []
+      try {
+        if (fs.existsSync(fileid)) {
+          list=fs.readFileSync(fileid, 'utf-8')
+          list=JSON.parse(list)
+        }
+      } catch(err) {
+        console.error(err)
+      }
+        var contact_new={
+          surname:req.body.surname,
+          name:req.body.name,
+          fathername:req.body.fathername,
+          ipn:req.body.ipn,
+          datebirsday:req.body.datebirsday,
+          phone:req.body.phone,
+          seria:req.body.seria,
+          number:req.body.number,
+          dateissue:req.body.dateissue,
+          authority:req.body.authority,
+          city:req.body.city,
+          street:req.body.street,
+          house:req.body.house
+        }
+      list[req.body.contact_id]= contact_new
+      fs.writeFileSync(fileid, JSON.stringify(list))
+      res.redirect("/")
+    }

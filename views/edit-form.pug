@@ -1,0 +1,19 @@
+extends layout
+block content
+  h1 Form 4
+  form.pasport(action="/update/" method="POST")
+    input(type="hidden" name="contact_id" value=contact.id)
+    input(type="text" name="surname" value=contact.surname)
+    input(type="text" name="name" value=contact.name)
+    input(type="text" name="fathername" value=contact.fathername)
+    input(type="text" name="ipn" value=contact.ipn)
+    input(type="text" name="datebirsday" value=contact.datebirsday)
+    input(type="text" name="phone" value=contact.phone)
+    input(type="text" name="seria" value=contact.seria)
+    input(type="text" name="number" value=contact.number)
+    input(type="text" name="dateissue" value=contact.dateissue)
+    input(type="text" name="authority" value=contact.authority) 
+    input(type="text" name="city" value=contact.city)  
+    input(type="text" name="street" value=contact.street)
+    input(type="text" name="house" value=contact.house)    
+    button SEND

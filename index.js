@@ -16,6 +16,8 @@ app.get('/', documentController.form)
 app.post('/step2', documentController.form2)
 app.post('/document-confirmation', documentController.showDoc)
 app.post('/delete/:id', documentController.delete)
+app.get('/edit/:id', documentController.edit)
+app.post('/update', documentController.update)
 // app.get('/thanx-page', documentController.showDoc)
 
 
